@@ -26,7 +26,6 @@ Positions Trie::Find(const std::string& key) {
     if (!search_node->children_[sym - 'a']) {
       return Positions();
     }
-
     search_node = search_node->children_[sym - 'a'];
   }
 
@@ -41,7 +40,7 @@ std::string Trie::GetMaxLenSubstr() {
     res.insert(res.end(), tmp.begin(), tmp.end());
   }
 
-  unsigned max_size = std::numeric_limits<unsigned>::min();
+  unsigned max_size = 0;// std::numeric_limits<unsigned>::min();
   std::string ret;
   for each(auto const& word in res) {
     if (word.size() > max_size) {

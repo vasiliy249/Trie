@@ -40,6 +40,14 @@ int main(int argc, char* argv[]) {
       if (key == "exit") {
         return 0;
       }
+      if (key == "insert") {
+        std::cout << "Enter inserting key:\n";
+        std::string ins_key;
+        std::cin >> ins_key;
+        trie->Insert(ins_key, 239);
+        std::cout << "Max substring by len: " << trie->GetMaxLenSubstr() << std::endl;
+        continue;
+      }
       Positions positions = trie->Find(key);
       std::cout << "Occurances count: " << positions.size() << (positions.size() ? " in posts:" : "");
       for each(auto const& val in positions) {
